@@ -70,7 +70,7 @@ INSTALL_REQUIRES = [
 EXTRAS_REQUIRE = {}
 ENTRY_POINTS = {}
 
-with open('README.rst', encoding='utf-8') as fp:
+with open('README.md', encoding='utf-8') as fp:
     LONGDESC = fp.read()
 
 ###############################################################################
