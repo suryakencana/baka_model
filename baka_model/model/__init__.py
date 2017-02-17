@@ -16,8 +16,3 @@
  # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  #  __init__.py.py
 """
-from baka_model.model import helper
-
-__all__ = ('Model',)
-
-Model = helper.Model

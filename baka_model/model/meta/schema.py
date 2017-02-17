@@ -19,6 +19,8 @@
 from datetime import datetime, date
 import time
 
+from baka_model.model import pubid
+
 from sqlalchemy.types import DateTime
 from sqlalchemy.ext.compiler import compiles
 from sqlalchemy.sql import functions
@@ -212,4 +214,22 @@ def timestamp_cols(table, metadata):
                       server_default=sa.func.now(),
                       default=utcnow(),
                       onupdate=utcnow())
+        )
+
+
+@sa.event.listens_for(sa.Table, "after_parent_attach")
+def primary_cols(table, metadata):
+    from .base import Base
+
+    if metadata is Base.metadata:
+        table.append_column(
+            sa.Column('id',
+                      sa.Integer,
+                      primary_key=True,
+                      autoincrement=True)
+        )
+        table.append_column(
+            sa.Column('pid', sa.CHAR(8),
+                      unique=True,
+                      default=pubid.generate)
         )
