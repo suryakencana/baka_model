@@ -36,7 +36,7 @@ from setuptools.command.test import test as _test
 
 ###############################################################################
 
-NAME = 'baka model'
+NAME = 'baka_model'
 DESC = 'Baka: Skeleton framework built top of pyramid'
 AUTHOR = 'Nanang Suryadi'
 AUTHOR_EMAIL = 'nanang.ask@gmail.com'
