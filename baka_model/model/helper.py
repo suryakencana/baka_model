@@ -97,8 +97,3 @@ class Model(Base):
     # id = Column(Integer, primary_key=True)
     id = Column(Integer, primary_key=True, autoincrement=True)
     pid = Column(CHAR(8), unique=True, default=pubid.generate)
-
-
-@event.listens_for(Model, "after_update")
-def modified_cols(mapper, connection, target):
-    target.modified = utcnow()
