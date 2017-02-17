@@ -23,7 +23,8 @@ import time
 from slugify import slugify
 from baka_model.model import pubid
 from baka_model.model.meta.base import Base
-from sqlalchemy import Column, Integer, FLOAT, Unicode, CHAR
+from baka_model.model.meta.schema import utcnow
+from sqlalchemy import Column, Integer, FLOAT, Unicode, CHAR, event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import synonym
 from dateutil import tz
@@ -96,3 +97,8 @@ class Model(Base):
     # id = Column(Integer, primary_key=True)
     id = Column(Integer, primary_key=True, autoincrement=True)
     pid = Column(CHAR(8), unique=True, default=pubid.generate)
+
+
+@event.listens_for(Model, "after_update")
+def modified_cols(mapper, connection, target):
+    target.modified = utcnow()

@@ -18,7 +18,6 @@
 """
 from datetime import datetime, date
 import time
-from baka_model.model.helper import Model
 
 from sqlalchemy.types import DateTime
 from sqlalchemy.ext.compiler import compiles
@@ -214,8 +213,3 @@ def timestamp_cols(table, metadata):
                       default=utcnow(),
                       onupdate=utcnow())
         )
-
-
-@sa.event.listens_for(Model, "after_update")
-def modified_cols(mapper, connection, target):
-    target.modified = utcnow()
