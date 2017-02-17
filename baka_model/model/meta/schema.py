@@ -18,7 +18,7 @@
 """
 from datetime import datetime, date
 import time
-from baka_model.model import Model
+from baka_model.model.helper import Model
 
 from sqlalchemy.types import DateTime
 from sqlalchemy.ext.compiler import compiles
