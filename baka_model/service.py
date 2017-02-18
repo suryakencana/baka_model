@@ -23,12 +23,15 @@
  # service
  # modified from https://github.com/mmerickel/pyramid_services
 """
+import logging
 import types
 from sqlalchemy.ext.declarative import DeclarativeMeta
 import sqlalchemy as sa
 from zope.interface import Interface, implementedBy, providedBy
 from zope.interface.adapter import AdapterRegistry
 from zope.interface.interfaces import IInterface
+
+LOG = logging.getLogger(__name__)
 
 _marker = object()
 
@@ -66,6 +69,7 @@ def register_model(
     models_factory = add_models(models)
 
     for model_class in models_factory:
+        LOG.debug(model_class.__tablename__)
         config.register_model_factory(
             model_class,
             iface,
