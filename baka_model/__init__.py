@@ -70,6 +70,9 @@ def includeme(config):
         reify=True
     )
 
+    # service model factory
+    config.include('.service')
+
     # Register a deferred action to bind the engine when the configuration is
     # committed. Deferring the action means that this module can be included
     # before model modules without ill effect.

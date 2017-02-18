@@ -88,12 +88,3 @@ class SurrogatePK(object):
 
     # id = Column(Integer, primary_key=True)
     id = Column(CHAR(10), primary_key=True, default=guid)
-
-
-class Model(object):
-    """A mixin that adds a surrogate integer 'primary key' column named
-    ``id`` to any declarative-mapped class."""
-
-    # id = Column(Integer, primary_key=True)
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    pid = Column(CHAR(8), unique=True, default=pubid.generate)

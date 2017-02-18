@@ -7,11 +7,12 @@ declarative `Base` alias model.Model and a add method on `request.db`.
 
 You can use these as base classes for declarative model definitions, e.g.::
 
-    from base_model import model
+    from base_model.model import Model
 
-    class MyModel(model.Model):
+    class MyModel(Model):
         """Example model class."""
 
         @classmethod
         def do_first(cls, session):
             instance = session.query(cls).first()
+            
