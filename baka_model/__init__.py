@@ -43,8 +43,8 @@ def includeme(config):
 
     """
     settings = config.get_settings()
-    should_create = asbool(settings.get('garasu_model.should_create_all', False))
-    should_drop = asbool(settings.get('garasu_model.should_drop_all', False))
+    should_create = asbool(settings.get('baka_model.should_create_all', False))
+    should_drop = asbool(settings.get('baka_model.should_drop_all', False))
 
     # Configure the transaction manager to support retrying retryable
     # exceptions. We also register the session factory with the thread-local

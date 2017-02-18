@@ -16,9 +16,10 @@
  # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  #  base.py
 """
+from baka_model.model import pubid
 from .schema import References
-from sqlalchemy import engine_from_config, MetaData
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import engine_from_config, MetaData, Column, Integer, CHAR
+from sqlalchemy.ext.declarative import as_declarative, declared_attr
 from sqlalchemy.orm import sessionmaker
 import zope.sqlalchemy
 
@@ -43,11 +44,18 @@ NAMING_CONVENTION = {
 metadata = MetaData(naming_convention=NAMING_CONVENTION)
 
 
+@as_declarative(metadata=metadata)
 class Base(References):
-    # query = DBSession.query_property()
-    pass
+    @declared_attr
+    def __tablename__(cls):
+        return cls.__name__.lower()
 
-Base = declarative_base(cls=Base, metadata=metadata)
+    # query = DBSession.query_property()
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    pid = Column(CHAR(8), unique=True, default=pubid.generate)
+
+
+# Base = declarative_base(cls=Base, metadata=metadata)
 
 
 def get_engine(settings, prefix='sqlalchemy.'):
