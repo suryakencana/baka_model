@@ -135,7 +135,7 @@ def find_model(request, name, iface=Interface, context=_marker):
         info = adapters.lookup(svc_types, iface, name=name)
         if info is None:
             raise ValueError('could not find registered service')
-        svc = info.factory(context, request)
+        svc = info.factory()
         cache.register(
             (IServiceClassifier, info.context_iface),
             iface,
