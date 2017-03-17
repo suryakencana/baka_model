@@ -45,17 +45,11 @@ LICENSE = 'MIT'
 KEYWORDS = ['model', 'sqlalchemy', 'framework']
 CLASSIFIERS = [
     'Development Status :: 3 - Alpha',
-    # Indicate who your project is intended for
-    'Environment :: Baka Framework',
     'Environment :: Web Environment',
     'Framework :: Pyramid',
     'Intended Audience :: Developers',
-    'Intended Audience :: Developers',
-    'Topic :: Software Development :: Web Framework',
-    # Pick your license as you wish (should match "license" above)
+    'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: MIT License',
-    # Specify the Python versions you support here. In particular, ensure
-    # that you indicate whether you support Python 2, Python 3 or both.
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',

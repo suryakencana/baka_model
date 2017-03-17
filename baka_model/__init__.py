@@ -26,7 +26,7 @@ from baka_model.model.meta.base import get_engine, get_session_factory, get_tm_s
 from pyramid.settings import asbool
 
 __all__ = ('__version__',)
-__version__ = '0.17.0+dev'
+__version__ = '0.17.0'
 
 
 def tm_activate_hook(request):

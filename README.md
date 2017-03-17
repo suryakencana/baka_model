@@ -1,6 +1,6 @@
 ## Baka model add-ons
 
-[Baka_model][] is add-ons baka framework built top of pyramid that provides an SQLAlchemy
+[Baka_model](https://github.com/suryakencana/baka_model) is add-ons baka framework built top of pyramid that provides an SQLAlchemy
 declarative `Base` alias model.Model and a add method on `request.db`.
 
 # Usage
