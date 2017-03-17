@@ -9,7 +9,7 @@
  #
  # As with any software that integrates with the Boolein platform, your use
  # of this software is subject to the Boolein Developer Principles and
- # Policies [http://developers.Boolein.com/policy/]. This copyright notice
+ # Policies [http://developers.boolein.com/policy/]. This copyright notice
  # shall be included in all copies or substantial portions of the software.
  #
  # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -37,21 +37,33 @@ from setuptools.command.test import test as _test
 ###############################################################################
 
 NAME = 'baka_model'
-DESC = 'Baka: Skeleton framework built top of pyramid'
+DESC = 'Baka: Skeleton framework built top of pyramid, baka_model for sqlalchemy'
 AUTHOR = 'Nanang Suryadi'
-AUTHOR_EMAIL = 'nanang.ask@gmail.com'
-URL = ''
-LICENSE = 'Simplified (2-Clause) BSD License'
+AUTHOR_EMAIL = 'nanang.jobs@gmail.com'
+URL = 'https://github.com/suryakencana/baka_model'
+LICENSE = 'MIT'
 KEYWORDS = ['model', 'sqlalchemy', 'framework']
 CLASSIFIERS = [
-    'Development Status :: 4 - Beta',
-    'Environment :: Console',
+    'Development Status :: 3 - Alpha',
+    # Indicate who your project is intended for
+    'Environment :: Baka Framework',
     'Environment :: Web Environment',
     'Framework :: Pyramid',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: BSD License',
-    'Operating System :: OS Independent',
+    'Intended Audience :: Developers',
+    'Topic :: Software Development :: Web Framework',
+    # Pick your license as you wish (should match "license" above)
+    'License :: OSI Approved :: MIT License',
+    # Specify the Python versions you support here. In particular, ensure
+    # that you indicate whether you support Python 2, Python 3 or both.
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.2',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
+    'Operating System :: OS Independent',
 ]
 INSTALL_REQUIRES = [
     'setuptools',
