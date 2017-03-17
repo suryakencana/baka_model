@@ -76,18 +76,19 @@ INSTALL_REQUIRES = [
 EXTRAS_REQUIRE = {}
 ENTRY_POINTS = {}
 
-with open('README.rst', 'r') as fp:
-    LONGDESC = fp.read()
-
 ###############################################################################
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 VERSION_FILE = os.path.join(HERE, 'baka_model', '__init__.py')
+LONGDESC_FILE = os.path.join(HERE, 'README.rst')
+
+with open(LONGDESC_FILE, encoding='utf-8') as fp:
+    LONGDESC = fp.read()
 
 
 def get_version():
     """Extract package __version__"""
-    with open(VERSION_FILE, 'r') as fp:
+    with open(VERSION_FILE, encoding='utf-8') as fp:
         content = fp.read()
     match = re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', content, re.M)
     if match:
@@ -114,7 +115,5 @@ setup(name=NAME,
       extras_require=EXTRAS_REQUIRE,
       entry_points=ENTRY_POINTS,
       cmdclass={'test': test},
-      include_package_data=True,
-      package_dir={'': '.'},
       packages=find_packages(include=['baka_model', 'baka_model.*']),
       zip_safe=False)

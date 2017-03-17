@@ -1,11 +1,11 @@
 Baka model add-ons
-------------------
+==================
 
-`Baka_model <https://github.com/suryakencana/baka_model>`_ is add-ons baka framework built top of pyramid that provides an SQLAlchemy
+`Baka_model <https://github.com/suryakencana/baka_model>`_. is add-ons baka framework built top of pyramid that provides an SQLAlchemy
 declarative ``Base`` alias model.Model and a add method on ``request.db``.
 
 Usage
------
+=====
 
 You can use these as base classes for declarative model definitions, e.g.
 
@@ -22,7 +22,7 @@ You can use these as base classes for declarative model definitions, e.g.
             instance = session.query(cls).first()
 
 Register Model
---------------
+==============
 
 using baka_model, you can apply dependency injection method for model that has been created.
 
@@ -45,7 +45,7 @@ using baka_model, you can apply dependency injection method for model that has b
 
 
 Install
--------
+=======
 
 Install with ``.ini`` file
 ::
