@@ -30,8 +30,7 @@ from __future__ import print_function
 import os
 import re
 from codecs import open
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.test import test as _test
 
 ###############################################################################
@@ -49,7 +48,7 @@ CLASSIFIERS = [
     'Environment :: Web Environment',
     'Framework :: Pyramid',
     'Intended Audience :: Developers',
-    'Topic :: Software Development :: Build Tools',
+    'Topic :: Software Development :: Libraries',
     'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.6',
@@ -77,7 +76,7 @@ INSTALL_REQUIRES = [
 EXTRAS_REQUIRE = {}
 ENTRY_POINTS = {}
 
-with open('README.md', encoding='utf-8') as fp:
+with open('README.rst', 'r', encoding='utf-8') as fp:
     LONGDESC = fp.read()
 
 ###############################################################################
@@ -88,7 +87,7 @@ VERSION_FILE = os.path.join(HERE, 'baka_model', '__init__.py')
 
 def get_version():
     """Extract package __version__"""
-    with open(VERSION_FILE, encoding='utf-8') as fp:
+    with open(VERSION_FILE, 'r', encoding='utf-8') as fp:
         content = fp.read()
     match = re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', content, re.M)
     if match:
@@ -117,5 +116,7 @@ if __name__ == "__main__":
           extras_require=EXTRAS_REQUIRE,
           entry_points=ENTRY_POINTS,
           cmdclass={'test': test},
+          include_package_data=True,
+          package_dir={'': '.'},
           packages=find_packages(include=['baka_model', 'baka_model.*']),
           zip_safe=False)
