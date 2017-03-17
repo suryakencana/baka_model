@@ -46,6 +46,7 @@ using baka_model, you can apply dependency injection method for model that has b
 
 Install
 -------
+
 Install with ``.ini`` file
 ::
     pyramid.includes =

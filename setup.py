@@ -76,7 +76,7 @@ INSTALL_REQUIRES = [
 EXTRAS_REQUIRE = {}
 ENTRY_POINTS = {}
 
-with open('README.rst', 'r', encoding='utf-8') as fp:
+with open('README.rst', 'r') as fp:
     LONGDESC = fp.read()
 
 ###############################################################################
@@ -87,7 +87,7 @@ VERSION_FILE = os.path.join(HERE, 'baka_model', '__init__.py')
 
 def get_version():
     """Extract package __version__"""
-    with open(VERSION_FILE, 'r', encoding='utf-8') as fp:
+    with open(VERSION_FILE, 'r') as fp:
         content = fp.read()
     match = re.search(r'^__version__ = [\'"]([^\'"]*)[\'"]', content, re.M)
     if match:
@@ -99,24 +99,22 @@ class test(_test):
     def run(self):
         print('please run tox instead')
 
-
-if __name__ == "__main__":
-    setup(name=NAME,
-          version=get_version(),
-          description=DESC,
-          long_description=LONGDESC,
-          classifiers=CLASSIFIERS,
-          keywords=KEYWORDS,
-          author=AUTHOR,
-          author_email=AUTHOR_EMAIL,
-          url=URL,
-          download_url=DOWNLOAD_URL,
-          license=LICENSE,
-          install_requires=INSTALL_REQUIRES,
-          extras_require=EXTRAS_REQUIRE,
-          entry_points=ENTRY_POINTS,
-          cmdclass={'test': test},
-          include_package_data=True,
-          package_dir={'': '.'},
-          packages=find_packages(include=['baka_model', 'baka_model.*']),
-          zip_safe=False)
+setup(name=NAME,
+      version=get_version(),
+      description=DESC,
+      long_description=LONGDESC,
+      classifiers=CLASSIFIERS,
+      keywords=KEYWORDS,
+      author=AUTHOR,
+      author_email=AUTHOR_EMAIL,
+      url=URL,
+      download_url=DOWNLOAD_URL,
+      license=LICENSE,
+      install_requires=INSTALL_REQUIRES,
+      extras_require=EXTRAS_REQUIRE,
+      entry_points=ENTRY_POINTS,
+      cmdclass={'test': test},
+      include_package_data=True,
+      package_dir={'': '.'},
+      packages=find_packages(include=['baka_model', 'baka_model.*']),
+      zip_safe=False)
