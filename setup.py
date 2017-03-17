@@ -41,6 +41,7 @@ DESC = 'Baka: Skeleton framework built top of pyramid, baka_model for sqlalchemy
 AUTHOR = 'Nanang Suryadi'
 AUTHOR_EMAIL = 'nanang.jobs@gmail.com'
 URL = 'https://github.com/suryakencana/baka_model'
+DOWNLOAD_URL = 'https://github.com/suryakencana/baka_model/archive/0.17.1.tar.gz'
 LICENSE = 'MIT'
 KEYWORDS = ['model', 'sqlalchemy', 'framework']
 CLASSIFIERS = [
@@ -110,6 +111,7 @@ if __name__ == "__main__":
           author=AUTHOR,
           author_email=AUTHOR_EMAIL,
           url=URL,
+          download_url=DOWNLOAD_URL,
           license=LICENSE,
           install_requires=INSTALL_REQUIRES,
           extras_require=EXTRAS_REQUIRE,
