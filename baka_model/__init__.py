@@ -54,6 +54,9 @@ def includeme(config):
         "tm.activate_hook": tm_activate_hook,
         "tm.annotate_user": False,
     })
+
+    # use pyramid_retry couse pyramid_tm disabled it
+    config.include('pyramid_retry')
     # use pyramid_tm to hook the transaction lifecycle to the request
     config.include('pyramid_tm')
 
