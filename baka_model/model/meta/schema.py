@@ -183,8 +183,15 @@ def _default_utcnow(element, compiler, **kw):
     return "utcnow()"
 
 
+@compiles(utcnow, 'mysql')
+def _sqlite_utcnow(element, compiler, **kw):
+    """Mysql-specific compilation handler."""
+    return "UTC_TIMESTAMP()"
+
+
 @compiles(utcnow, 'sqlite')
 def _sqlite_utcnow(element, compiler, **kw):
+    """SQLite-specific compilation handler."""
     return "(CURRENT_TIMESTAMP)"
 
 
