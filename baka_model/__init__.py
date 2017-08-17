@@ -49,8 +49,9 @@ def includeme(config):
     # Configure the transaction manager to support retrying retryable
     # exceptions. We also register the session factory with the thread-local
     # transaction manager, so that all sessions it creates are registered.
+    #    "tm.attempts": 3,
     config.add_settings({
-        "tm.attempts": 3,
+        "retry.attempts": 3,
         "tm.activate_hook": tm_activate_hook,
         "tm.annotate_user": False,
     })

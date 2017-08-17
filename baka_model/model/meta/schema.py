@@ -19,8 +19,6 @@
 from datetime import datetime, date
 import time
 
-from baka_model.model import pubid
-
 from sqlalchemy.types import DateTime
 from sqlalchemy.ext.compiler import compiles
 from sqlalchemy.sql import functions
@@ -192,7 +190,7 @@ def _sqlite_utcnow(element, compiler, **kw):
 @compiles(utcnow, 'sqlite')
 def _sqlite_utcnow(element, compiler, **kw):
     """SQLite-specific compilation handler."""
-    return "(CURRENT_TIMESTAMP)"
+    return "CURRENT_TIMESTAMP"
 
 
 @compiles(utcnow, 'postgresql')

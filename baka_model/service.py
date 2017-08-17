@@ -25,6 +25,7 @@
 """
 import logging
 import types
+
 from sqlalchemy.ext.declarative import DeclarativeMeta
 import sqlalchemy as sa
 from zope.interface import Interface, implementedBy, providedBy
@@ -80,11 +81,11 @@ def register_model(
 
 # for single model
 def register_model_factory(
-    config,
-    model_factory,
-    iface=Interface,
-    context=Interface,
-    name='',
+        config,
+        model_factory,
+        iface=Interface,
+        context=Interface,
+        name='',
 ):
     model_factory = config.maybe_dotted(model_factory)
     iface = config.maybe_dotted(iface)
